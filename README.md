@@ -2,7 +2,7 @@
 
 📢 **Note**
 - **Instructor**: 袁賢銘
-- **Semester**: 2024 Fall
+- **Semester**: 2025 Fall
 
 ## Homework
 
