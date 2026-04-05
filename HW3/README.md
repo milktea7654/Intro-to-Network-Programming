@@ -1,5 +1,7 @@
 # 遊戲商城系統 (Game Platform System)
 
+**Score: 110/120** 
+
 ### 內建遊戲
 
 1. **Number Guessing Game** 

@@ -56,12 +56,11 @@ class TicTacToeClient:
         try:
             self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.socket.connect((self.host, self.port))
-            print(f"[Client] Connected to {self.host}:{self.port}")
             
             threading.Thread(target=self.receive_messages, daemon=True).start()
             
         except Exception as e:
-            print(f"[Client] Connection failed: {e}")
+            print(f" 連接失敗: {e}")
             self.root.after(0, lambda: messagebox.showerror("Error", f"Failed to connect: {e}"))
             self.root.quit()
     
@@ -86,9 +85,9 @@ class TicTacToeClient:
                     self.root.after(0, self.update_board)
                     
         except Exception as e:
-            print(f"[Client] Receive error: {e}")
+            print(f" 接收消息錯誤: {e}")
         finally:
-            print("[Client] Disconnected from server")
+            print(" 與服務器斷開連接")
             if not self.game_over:
                 self.root.after(0, lambda: messagebox.showinfo("Info", "Disconnected from server"))
     
@@ -114,7 +113,7 @@ class TicTacToeClient:
             if self.winner == 'TIE':
                 self.info_label.config(text="Game Over: It's a TIE!", fg='orange')
             elif self.winner == self.my_symbol:
-                self.info_label.config(text=" You WIN! ", fg='green')
+                self.info_label.config(text="You WIN!", fg='green')
             else:
                 self.info_label.config(text="You LOSE!", fg='red')
         else:
@@ -147,7 +146,7 @@ class TicTacToeClient:
         if self.winner == 'TIE':
             result = "It's a TIE!"
         elif self.winner == self.my_symbol:
-            result = " You WIN! "
+            result = "You WIN!"
         else:
             result = "You LOSE!"
         
@@ -158,7 +157,7 @@ class TicTacToeClient:
             message = json.dumps(data).encode('utf-8')
             self.socket.sendall(len(message).to_bytes(4, 'big') + message)
         except Exception as e:
-            print(f"[Client] Send error: {e}")
+            print(f" 發送消息失敗: {e}")
     
     def receive_message(self):
         try:

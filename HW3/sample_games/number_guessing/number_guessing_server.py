@@ -299,10 +299,10 @@ class NumberGuessingServer:
             
         else:
             if guess > target:
-                hint = "太高了"
+                hint = "\033[92m太高了\033[0m"
                 self.game_state["max_range"] = guess - 1  
             else:
-                hint = "太低了"
+                hint = "\033[92m太低了\033[0m"
                 self.game_state["min_range"] = guess + 1  
             
             range_msg = f"新範圍: {self.game_state['min_range']}~{self.game_state['max_range']}"
