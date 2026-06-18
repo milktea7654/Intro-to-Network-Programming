@@ -1,6 +1,6 @@
 # Intro. to Network Programming    
 
-📢 **Note**
+ **Note**
 - **Instructor**: 袁賢銘
 - **Semester**: 2025 Fall
 

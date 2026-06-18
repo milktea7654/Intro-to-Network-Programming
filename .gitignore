@@ -1,0 +1,15 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+
+
+# System files
+.DS_Store
+Thumbs.db
+
+#file
+
+*command.md
